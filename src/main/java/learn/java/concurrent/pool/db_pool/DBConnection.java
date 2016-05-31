@@ -1,4 +1,4 @@
-package learn.java.concurrent.pool;
+package learn.java.concurrent.pool.db_pool;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
