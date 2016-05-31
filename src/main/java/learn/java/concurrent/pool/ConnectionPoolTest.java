@@ -18,8 +18,6 @@ public class ConnectionPoolTest {
 
     static CountDownLatch end;
 
-    private int a;
-
     public static void main(String[] args) throws InterruptedException {
         int threadCount = 1000;// 定义线程数量
         end = new CountDownLatch(threadCount);
