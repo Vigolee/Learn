@@ -1,8 +1,6 @@
 package learn.java.concurrent.tools;
 
-import java.util.concurrent.Exchanger;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * Created by Vigo on 16/6/2.
@@ -13,6 +11,7 @@ public class ExchangerTest {
     private static ExecutorService pool = Executors.newFixedThreadPool(2);
 
     public static void main(String[] args) {
+
         pool.execute(new Runnable() {
             public void run() {
                 String A = "this is A";
