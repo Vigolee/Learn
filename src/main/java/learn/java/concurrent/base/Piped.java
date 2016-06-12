@@ -17,7 +17,7 @@ public class Piped {
 
         // 连接输入/输出流
         try {
-            out.connect(in);
+            out.connect(in); //!!!!必须有!!!
             Thread printThread = new Thread(new Print(in), "PrintThread");
             printThread.start();
 
