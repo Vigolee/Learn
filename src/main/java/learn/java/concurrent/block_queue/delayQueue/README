@@ -1,0 +1,31 @@
+模拟一个考试的日子，考试时间为120分钟，30分钟后才可交卷，当时间到了，或学生都交完卷了考试结束。
+
+这个场景中几个点需要注意：
+    1.考试时间为120分钟，30分钟后才可交卷，初始化考生完成试卷时间最小应为30分钟
+    2.对于能够在120分钟内交卷的考生，如何实现这些考生交卷
+    3.对于120分钟内没有完成考试的考生，在120分钟考试时间到后需要让他们强制交卷
+    4.在所有的考生都交完卷后，需要将控制线程关闭
+
+
+运行结果：
+student 2 submit paper at 120 and wants using 32
+student 5 submit paper at 120 and wants using 32
+student 20 submit paper at 120 and wants using 38
+student 13 submit paper at 120 and wants using 44
+student 7 submit paper at 120 and wants using 62
+student 19 submit paper at 120 and wants using 66
+student 14 submit paper at 120 and wants using 73
+student 4 submit paper at 120 and wants using 82
+student 15 submit paper at 120 and wants using 89
+student 17 submit paper at 120 and wants using 93
+student 10 submit paper at 120 and wants using 99
+student 9 submit paper at 120 and wants using 103
+student 11 submit paper at 120 and wants using 105
+student 6 submit paper at 120 and wants using 112
+student 18 submit paper using 123
+student 8 submit paper using 136
+student 3 submit paper using 143
+student 12 submit paper using 142
+student 16 submit paper using 140
+student 1 submit paper using 145
+ 考试时间到，全部交卷！
