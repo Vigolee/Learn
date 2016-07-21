@@ -6,6 +6,7 @@
     <groupId>com.Vigo</groupId>
     <artifactId>Vigo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 <dependencies>
     <!-- Junit-->
     <dependency>
@@ -88,7 +89,7 @@
                     <!-- 注意此处的url -->
                     <url>http://localhost:8080/manager/text</url>
                     <username>admin</username>
-                    <password>admin</password>
+                    <password>123</password>
                     <server>tomcat</server> <!-- 此处的名字必须和setting.xml中配置的ID一致-->
                     <path>/Learn</path> <!-- 此处的名字是项目发布的工程名-->
                 </configuration>
