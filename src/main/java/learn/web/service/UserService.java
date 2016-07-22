@@ -14,14 +14,10 @@ import javax.annotation.Resource;
 @Service("userService")
 public class UserService{
 
+    @Resource
     private UserDao userDao;
 
-    @Resource(name = "userDao")
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
-    public void add(User user){
+    public void addUser(User user){
         System.out.println(user.age);
         userDao.addUser(user);
     }

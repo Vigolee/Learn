@@ -17,11 +17,11 @@ public class UserController {
     @Resource(name = "userService")
     private UserService service;
 
-    @RequestMapping(value = "/instance",
+    @RequestMapping(value = "/call",
             method = RequestMethod.GET)
     @ResponseBody
     public String call(int id) {
         System.out.println(id + "----");
-        return "hello";
+        return "hello" + id;
     }
 }
