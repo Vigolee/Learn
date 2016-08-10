@@ -1,0 +1,13 @@
+package learn.design_pattern.create_patterns.factory.common_class;
+
+import learn.design_pattern.create_patterns.factory.common_interface.Product;
+
+/**
+ * Created by Vigo on 16/6/12.
+ */
+public class ProductA implements Product {
+
+    public void doSomething() {
+        System.out.println("create productA");
+    }
+}
