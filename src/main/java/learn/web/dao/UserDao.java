@@ -2,11 +2,11 @@ package learn.web.dao;
 
 
 import learn.web.po.User;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Repository
+@Component("userDao")
 public interface UserDao {
 
 	void addUser(User user);

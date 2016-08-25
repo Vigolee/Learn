@@ -3,7 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-     <servlet>
+
+    <!-- 配置文件位置，默认为/WEB-INF/applicationContext.xml -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:conf/applicationContext.xml</param-value>
+    </context-param>
+
+    <!-- 上下文Spring监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- Spring MVC 子容器-->
+    <servlet>
         <servlet-name>SpringMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
          <init-param>

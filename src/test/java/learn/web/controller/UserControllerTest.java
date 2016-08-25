@@ -1,8 +1,10 @@
 package learn.web.controller;
 
-import learn.web.config.BasicTest;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
@@ -12,7 +14,10 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 /**
  * Created by Vigo on 16/7/22.
  */
-public class UserControllerTest extends BasicTest{
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:conf/applicationContext.xml",
+        "classpath:conf/SpringMVC-servlet.xml"})
+public class UserControllerTest {
 
     private MockMvc mockMvc;
 
