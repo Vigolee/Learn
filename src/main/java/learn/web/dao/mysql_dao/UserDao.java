@@ -1,7 +1,7 @@
 package learn.web.dao.mysql_dao;
 
 
-import learn.web.po.User;
+import learn.web.po.model.User;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

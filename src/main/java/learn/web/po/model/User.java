@@ -1,4 +1,4 @@
-package learn.web.po;
+package learn.web.po.model;
 
 public class User {
 

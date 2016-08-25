@@ -3,6 +3,7 @@ package learn.web.po.mongdb_model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -82,5 +83,19 @@ public class User {
 
     public void setSpecial(String[] special) {
         this.special = special;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name=" + name +
+                ", age=" + age +
+                ", works=" + works +
+                ", birth=" + birth +
+                ", password='" + password + '\'' +
+                ", regionName='" + regionName + '\'' +
+                ", special=" + Arrays.toString(special) +
+                '}';
     }
 }

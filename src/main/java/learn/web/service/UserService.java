@@ -1,8 +1,8 @@
 package learn.web.service;
 
 
-import learn.web.dao.UserDao;
-import learn.web.po.User;
+import learn.web.dao.mysql_dao.UserDao;
+import learn.web.po.model.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 @Service("userService")
 public class UserService{
 
-    @Resource
+    @Resource(name = "userDao")
     private UserDao userDao;
 
     public void addUser(User user){

@@ -15,6 +15,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
     @Resource(name = "userService")
     private UserService service;
 
