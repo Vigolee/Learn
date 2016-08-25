@@ -5,6 +5,9 @@ import learn.web.dao.mongodb_dao.UserDao;
 import learn.web.po.mongdb_model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,16 +23,18 @@ public class UserDaoImp implements UserDao {
     private MongoTemplate mongoTemplate;
 
     public void _test() {
-        Set<String> colls = this.mongoTemplate.getCollectionNames();
-        for (String coll : colls) {
-            System.out.println("CollectionName=" + coll);
+        Set<String> collections = this.mongoTemplate.getCollectionNames();
+        for (String collection : collections) {
+            System.out.println("CollectionName=" + collection);
         }
         DB db = this.mongoTemplate.getDb();
         System.out.println("db = " + db.toString());
     }
 
     public void createCollection() {
-
+        if (!this.mongoTemplate.collectionExists(User.class)) {
+            this.mongoTemplate.createCollection(User.class);
+        }
     }
 
     public List<User> findList(int skip, int limit) {
@@ -41,18 +46,29 @@ public class UserDaoImp implements UserDao {
     }
 
     public User findOne(String id) {
-        return null;
+        Query query = new Query();
+        query.addCriteria(new Criteria("_id").is(id));
+        return this.mongoTemplate.findOne(query, User.class);
     }
 
     public User findOneByUsername(String username) {
         return null;
     }
 
-    public void insert(User entity) {
-
+    public void insert(User user) {
+        this.mongoTemplate.insert(user);
     }
 
-    public void update(User entity) {
-
+    public void update(User user) {
+        Query query = new Query();
+        query.addCriteria(new Criteria("_id").is(user.getId()));
+        Update update = new Update();
+        update.set("age", user.getAge());
+        update.set("password", user.getPassword());
+        update.set("regionName", user.getRegionName());
+        update.set("special", user.getSpecial());
+        update.set("works", user.getWorks());
+        update.set("name", user.getName());
+        this.mongoTemplate.updateFirst(query, update, User.class);
     }
 }
