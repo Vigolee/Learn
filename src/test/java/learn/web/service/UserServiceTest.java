@@ -1,6 +1,6 @@
 package learn.web.service;
 
-import learn.web.po.User;
+import learn.web.po.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
