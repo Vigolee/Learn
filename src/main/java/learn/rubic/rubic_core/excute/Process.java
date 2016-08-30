@@ -1,10 +1,16 @@
 package learn.rubic.rubic_core.excute;
 
+import learn.rubic.rubic_core.excute.io_task.AlgorithmLoader;
+import learn.rubic.rubic_core.excute.io_task.DataLoader;
 import learn.rubic.rubic_core.model.AlgorithmInfo;
 import learn.rubic.rubic_core.model.DataSetInfo;
 import learn.rubic.rubic_framework.excute_interface.OperationalData;
 import learn.rubic.rubic_framework.result_data.ResultDataSet;
 import learn.rubic.rubic_framework.train_data.DataSet;
+
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 /**
  * 一次运算
@@ -12,13 +18,21 @@ import learn.rubic.rubic_framework.train_data.DataSet;
  */
 public class Process {
 
+    private CyclicBarrier cyclicBarrier = new CyclicBarrier(2);
+
+    private Executor executor = Executors.newFixedThreadPool(100);
+
+    private DataSet input;
+
+    private OperationalData operationalData;
+
     /**
      * 数据加载 (I/O 线程池中执行)
      * @param dataSetInfo
      * @return
      */
-    private DataSet loadData(DataSetInfo[] dataSetInfo){
-        return null;
+    public void loadData(DataSetInfo[] dataSetInfo){
+        executor.execute(new DataLoader(this, dataSetInfo, cyclicBarrier));
     }
 
     /**
@@ -26,8 +40,8 @@ public class Process {
      * @param algorithmInfo
      * @return
      */
-    private OperationalData loadAlgorithm(AlgorithmInfo algorithmInfo){
-        return null;
+    private void loadAlgorithm(AlgorithmInfo algorithmInfo){
+        executor.execute(new AlgorithmLoader(this, algorithmInfo, cyclicBarrier));
     }
 
     /**
@@ -37,8 +51,8 @@ public class Process {
      * @return
      */
     public ResultDataSet run(DataSetInfo[] dataSetInfo, AlgorithmInfo algorithmInfo){
-        DataSet input = loadData(dataSetInfo);
-        OperationalData operationalData = loadAlgorithm(algorithmInfo);
+        loadData(dataSetInfo);
+        loadAlgorithm(algorithmInfo);
         return operationalData.run(input, null, null);
     }
 
@@ -51,9 +65,17 @@ public class Process {
      */
     public ResultDataSet usingModel(DataSetInfo[] dataSetInfo, AlgorithmInfo algorithmInfo,
                                     Object model){
-        DataSet input = loadData(dataSetInfo);
-        OperationalData operationalData = loadAlgorithm(algorithmInfo);
+        loadData(dataSetInfo);
+        loadAlgorithm(algorithmInfo);
         return operationalData.usingModel(input, model);
     }
 
+    public void setDataSet(DataSet dataSet){
+        this.input = dataSet;
+    }
+
+    public Process setOperationalData(OperationalData operationalData) {
+        this.operationalData = operationalData;
+        return this;
+    }
 }
