@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service;
 @Service("dataStructFactory")
 public class DataStructFactory {
 
-    public DataStruct getDataStruct(DataSetInfo dataSetInfo, int type) {
-        switch (type){
+    public DataStruct getDataStruct(DataSetInfo dataSetInfo) {
+        switch (dataSetInfo.getType()){
             case 1 : return createMatrixStruct(dataSetInfo);
             case 2 : return createTextStruct(dataSetInfo);
             default:
-                System.out.println("Data type " + type + " is not exit");
+                System.out.println("Data type " + dataSetInfo.getType() + " is not exit");
                 return null;
         }
     }
