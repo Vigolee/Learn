@@ -14,6 +14,8 @@ public class DataSetInfo {
 
     private String label_attribute;
 
+    private int type;
+
     private boolean hasLabel = true;
 
     /**
@@ -21,8 +23,8 @@ public class DataSetInfo {
      * @param data_path
      * @param attributes
      */
-    public DataSetInfo(String data_path, ArrayList<String> attributes) {
-       this(data_path, attributes, null);
+    public DataSetInfo(String data_path, ArrayList<String> attributes, int type) {
+       this(data_path, attributes, null, type);
         this.hasLabel = false;
     }
 
@@ -32,10 +34,12 @@ public class DataSetInfo {
      * @param attributes
      * @param label_attribute
      */
-    public DataSetInfo(String data_path, ArrayList<String> attributes, String label_attribute) {
+    public DataSetInfo(String data_path, ArrayList<String> attributes, String label_attribute,
+                       int type) {
         this.data_path = data_path;
         this.attributes = attributes;
         this.label_attribute = label_attribute;
+        this.type = type;
     }
 
 
@@ -53,5 +57,9 @@ public class DataSetInfo {
 
     public boolean isHasLabel() {
         return hasLabel;
+    }
+
+    public int getType() {
+        return type;
     }
 }
