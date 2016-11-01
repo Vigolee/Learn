@@ -12,9 +12,20 @@ public class DataSet {
 
     private ArrayList<DataStruct> input;
 
+
+    public DataSet() {
+        this.data_type = new ArrayList<Integer>();
+        this.input = new ArrayList<DataStruct>();
+    }
+
     public DataSet(ArrayList<Integer> data_type, ArrayList<DataStruct> input) {
         this.data_type = data_type;
         this.input = input;
+    }
+
+    public void addDataStruct(DataStruct dataStruct, int type){
+        this.data_type.add(type);
+        this.input.add(dataStruct);
     }
 
     public ArrayList<Integer> getData_type() {

@@ -43,6 +43,6 @@ public class Palindrome {
     }
 
     public static void main(String[] args) {
-        new Palindrome().longestPalindrome("abba");
+        new Palindrome().longestPalindrome("abacba");
     }
 }
