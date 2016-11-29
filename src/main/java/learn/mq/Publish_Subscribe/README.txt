@@ -1,0 +1,4 @@
+deliver a message to multiple consumers
+fanout类型转发器把所有接收到的消息，广播到所有它所知道的队列
+Receiver_Console创建随机名称的队列
+EmitMessage将消息放入exchange名为log的队列
