@@ -29,6 +29,7 @@ public class SendTask {
                 String message = "hello_" + i;
                 // 向队列中发送消息
                 // 标识信息为持久化的
+                // 第一个参数代表default exchange
                 channel.basicPublish("", Configuration.WORK_QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
             }
             //关闭频道和资源
