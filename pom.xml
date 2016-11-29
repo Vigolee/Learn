@@ -139,7 +139,13 @@
         <artifactId>mybatis-spring</artifactId>
         <version>1.2.2</version>
     </dependency>
-    <!-- ================Mybatis end================ -->
+    <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
+    <dependency>
+        <groupId>com.rabbitmq</groupId>
+        <artifactId>amqp-client</artifactId>
+        <version>3.5.7</version>
+    </dependency>
+    <!-- ================rabbitmq end================ -->
 </dependencies>
     <build>
         <finalName>Learn</finalName>
