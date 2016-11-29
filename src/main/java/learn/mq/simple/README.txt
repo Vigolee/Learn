@@ -1,0 +1,2 @@
+发送者Sender发送一条消息到queue
+接收者：Receiver阻塞监听、Receiver_sec监听模式接收
