@@ -2,8 +2,8 @@ package learn.mq.simple;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 import learn.mq.conf.Configuration;
+import learn.mq.conf.MQConnection;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -14,11 +14,10 @@ import java.util.concurrent.TimeoutException;
 public class Sender {
 
     public static void main(String[] args) {
-        // 创建连接
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+
         try {
-            Connection connection = factory.newConnection();
+            // 获取连接
+            Connection connection = MQConnection.getMQLocalConnection();
             // 创建通道
             Channel channel = connection.createChannel();
             // 指定队列

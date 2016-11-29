@@ -2,6 +2,7 @@ package learn.mq.simple;
 
 import com.rabbitmq.client.*;
 import learn.mq.conf.Configuration;
+import learn.mq.conf.MQConnection;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -13,11 +14,9 @@ import java.util.concurrent.TimeoutException;
 public class Receiver_sec {
 
     public static void main(String[] args) {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
-        Connection connection = null;
         try {
-            connection = factory.newConnection();
+            // 获取连接
+            Connection connection = MQConnection.getMQLocalConnection();
             // 创建通道
             Channel channel = connection.createChannel();
             // 防止消息接收者先运行此程序，队列还不存在时创建队列
@@ -32,6 +31,8 @@ public class Receiver_sec {
                     System.out.println("[r*] Received '" + message + "'");
                 }
             };
+            channel.close();
+            connection.close();
             channel.basicConsume(Configuration.QUEUE_NAME, true, consumer);
         } catch (IOException e) {
             e.printStackTrace();

@@ -2,9 +2,9 @@ package learn.mq.simple;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 import learn.mq.conf.Configuration;
+import learn.mq.conf.MQConnection;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -16,11 +16,9 @@ import java.util.concurrent.TimeoutException;
 public class Receiver {
 
     public static void main(String[] args) {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
-        Connection connection = null;
         try {
-            connection = factory.newConnection();
+            // 获取连接
+            Connection connection = MQConnection.getMQLocalConnection();
             // 创建通道
             Channel channel = connection.createChannel();
             // 防止消息接收者先运行此程序，队列还不存在时创建队列
@@ -31,18 +29,23 @@ public class Receiver {
             QueueingConsumer consumer = new QueueingConsumer(channel);
             // 指定消费队列
             channel.basicConsume(Configuration.QUEUE_NAME, true, consumer);
-            while (true){
+            boolean flag = true;
+            while (flag){
                 //nextDelivery是一个阻塞方法（内部实现其实是阻塞队列的take方法）
                 QueueingConsumer.Delivery delivery = consumer.nextDelivery();
                 String message = new String(delivery.getBody());
                 System.out.println(" [r*] Received '" + message + "'");
 
             }
+            // 释放资源
+            channel.close();
+            connection.close();
+
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (TimeoutException e) {
-            e.printStackTrace();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
             e.printStackTrace();
         }
     }
