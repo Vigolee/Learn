@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/rabbit
+           http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 连接服务配置  -->
+    <rabbit:connection-factory id="connectionFactory" host="${rabbitmq.host}" username="${rabbitmq.user}"
+            password="${rabbitmq.password}" port="${rabbitmq.port}"/>
+
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+
+    <!-- queue 队列声明-->
+    <rabbit:queue id="queue_one" durable="true" auto-delete="false" exclusive="false"
+                  name="queue_one"/>
+    <!-- Exchange转换器声明 direct/fanout/topic-->
+    <rabbit:direct-exchange id="exchange_direct" durable="true" auto-delete="false" name="exchange_direct">
+        <rabbit:bindings>
+            <rabbit:binding queue="queue_one" key="queue_one_key"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" exchange="exchange_direct"/>
+
+</beans>

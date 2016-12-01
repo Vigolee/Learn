@@ -12,13 +12,14 @@
         <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
     </context:component-scan>
 
-    <!-- 引入mysql和mongodb配置文件 -->
+    <!-- 引入mysql, mongodb以及RabbitMQ配置文件 -->
     <!--<context:property-placeholder location="classpath:conf/mysql.properties"/>-->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath:/conf/mysql.properties</value>
                 <value>classpath:/conf/mongodb.properties</value>
+                <value>classpath:/conf/rabbitmq.properties</value>
             </list>
         </property>
     </bean>
@@ -47,5 +48,6 @@
     </bean>
 
     <import resource="classpath:/conf/mongodb-context.xml"/>
-    <import resource="spring-security.xml" />
+    <import resource="classpath:/conf/spring-security.xml" />
+    <import resource="classpath:/conf/rabbitmq.xml"/>
 </beans>
