@@ -1,6 +1,7 @@
-package learn.algorithm;
+package learn.algorithm.dfs;
 
 /**
+ * 部分和：给定整数a1，a2,...,an,判断是否可以从中选出若干数，使它们的和恰好为k
  * Created by Vigo on 16/10/13.
  */
 public class PartSum {
