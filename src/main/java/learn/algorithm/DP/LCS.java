@@ -1,4 +1,4 @@
-package learn.algorithm;
+package learn.algorithm.DP;
 
 /**
  * 最长公共子序列（动态规划）
