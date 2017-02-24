@@ -61,6 +61,7 @@ public class Student implements Delayed{
 
     /**
      * 指定元素顺序
+     * ！！！！！！此处，按照降序排列，因为优先级大小与元素大小相反
      * @param o
      * @return
      */
