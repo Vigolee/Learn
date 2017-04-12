@@ -1,9 +1,9 @@
 # Learn
 
-This is a Maven project including several parts:
-Java: classLoader, concurrent, proxy,reflect, nio
-Framework: Spring, Spring MVC, MyBatis
-Cache: Redis
+This is a Maven project including several parts:\<br>
+Java: classLoader, concurrent, proxy,reflect, nio\<br>
+Framework: Spring, Spring MVC, MyBatis\<br>
+Cache: Redis\<br>
 MQ: RabbitMQ
 DataBase: Mysql MongoDB.
 Log: log4j.
