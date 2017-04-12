@@ -23,7 +23,7 @@ public class EmitMessage {
             Channel channel = connection.createChannel();
             // 声明转发器和类型
             channel.exchangeDeclare(Configuration.EXCHANGE_NAME, "fanout");
-
+           
             String message = new Date().getTime()+" : log something";
 
             // 往转发器上发送消息

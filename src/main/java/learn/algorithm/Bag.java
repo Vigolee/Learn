@@ -1,5 +1,7 @@
 package learn.algorithm;
 
+import java.util.HashSet;
+
 /**
  * Created by Vigo on 16/10/13.
  */

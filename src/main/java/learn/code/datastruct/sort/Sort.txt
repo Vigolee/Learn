@@ -1,0 +1,14 @@
+    平均          最好          最坏
+插入 O(n2)        O(n)         O(n2)  稳定
+选择 O(n2)        O(n2)        O(n2)
+冒泡 O(n2)        O(n)         O(n2)  稳定
+快排 O(nlogn)     O(nlogn)     O(n2)
+归并 O(nlogn)     O(nlogn)     O(nlogn) 稳定
+堆排 O(nlogn)     O(nlogn)     O(nlogn)
+希尔 O（nlogn）～O（n2）？            O(n1.3)             O(n2)
+
+插入排序，性能优于选择和冒泡，因为比较次数少
+快速排序优化：
+    1、三位取中
+    2、数组较小，才用插入排序，减少函数调用
+快排最坏情况：数组基本有序或者逆序

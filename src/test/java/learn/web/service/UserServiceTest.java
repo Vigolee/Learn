@@ -24,7 +24,7 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests {
     public void addUserTest(){
         User user = new User();
         user.setName("Bunny");
-        user.setAge(25);
+        user.setAge(29);
         user.setAddress("nanping");
         user.setSex("female");
         userService.addUser(user);

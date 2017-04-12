@@ -9,8 +9,9 @@ public class MaxSubMatrix {
     public void getMaxSubMatrix(int[][] A, int m, int n){
         int[][] total = getTotal(A, m, n);
         int max = Integer.MIN_VALUE;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < m; i++) {
             for (int j = i; j < m ; j++) {
+                //result 保存的是从 i 行 到第 j 行 所对应的矩阵上下值的和
                 int[] result = new int[n];
                 for (int k = 0; k < n; k++) {
                     if (i == 0){

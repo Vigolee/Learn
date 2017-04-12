@@ -34,7 +34,7 @@ public class LCS {
                 }
             }
         }
-     //   printCount(count);
+//        printCount(count);
         printPath(path);
 //        printSubString(m, path, m.length - 1, n.length - 1);
         printAllSubString(m, n, count, m.length - 1, n.length - 1, "");
