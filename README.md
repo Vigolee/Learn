@@ -1,7 +1,7 @@
 # Learn
 
-This is a Maven project including several parts:\<br>
-Java: classLoader, concurrent, proxy,reflect, nio\<br>
+This is a Maven project including several parts:<br>
+Java: classLoader, concurrent, proxy,reflect, nio<br>
 Framework: Spring, Spring MVC, MyBatis\<br>
 Cache: Redis\<br>
 MQ: RabbitMQ
