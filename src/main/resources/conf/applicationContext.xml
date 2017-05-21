@@ -50,7 +50,6 @@
 
     <!-- 引入其他配置文件 -->
     <import resource="classpath:/conf/mongdb/mongodb-context.xml"/>
-    <import resource="classpath:/conf/spring-security.xml" />
     <import resource="classpath:/conf/mq/rabbitmq.xml"/>
     <import resource="classpath:/conf/redis/redis-context.xml"/>
 </beans>

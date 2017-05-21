@@ -5,5 +5,4 @@ package learn.rubic.rubic_framework.train_data;
  * Created by Vigo on 16/8/25.
  */
 public class DataStruct {
-
 }
