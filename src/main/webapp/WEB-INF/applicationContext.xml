@@ -18,9 +18,10 @@
         <property name="locations">
             <list>
                 <value>classpath:/conf/mysql/mysql.properties</value>
-                <value>classpath:/conf/mongdb/mongodb.properties</value>
-                <value>classpath:/conf/mq/rabbitmq.properties</value>
-                <value>classpath:conf/redis/redis.properties</value>
+                <!-- 引入mongodb以及RabbitMQ配置文件-->
+                <!--<value>classpath:/conf/mongdb/mongodb.properties</value>-->
+                <!--<value>classpath:/conf/mq/rabbitmq.properties</value>-->
+                <!--<value>classpath:conf/redis/redis.properties</value>-->
             </list>
         </property>
     </bean>
@@ -49,7 +50,7 @@
     </bean>
 
     <!-- 引入其他配置文件 -->
-    <import resource="classpath:/conf/mongdb/mongodb-context.xml"/>
-    <import resource="classpath:/conf/mq/rabbitmq.xml"/>
-    <import resource="classpath:/conf/redis/redis-context.xml"/>
+    <!--<import resource="classpath:/conf/mongdb/mongodb-context.xml"/>-->
+    <!--<import resource="classpath:/conf/mq/rabbitmq.xml"/>-->
+    <!--<import resource="classpath:/conf/redis/redis-context.xml"/>-->
 </beans>
