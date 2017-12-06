@@ -1,15 +1,15 @@
 # Learn
 
-This is a Maven project including several parts:
-Java: classLoader, concurrent, proxy,reflect, nio
-Framework: Spring, Spring MVC, MyBatis
-Cache: Redis
-MQ: RabbitMQ
-DataBase: Mysql MongoDB.
-Log: log4j.
-Test: Junit4
-refactoring code
-design pattern
-algorithm: DP, DFS, BFS
-data struct: list, tree, sort, search
+This is a Maven project including several parts:<br>
+* Java: classLoader, concurrent, proxy,reflect, nio<br>
+* Framework: Spring, Spring MVC, MyBatis<br>
+* Cache: Redis<br>
+* MQ: RabbitMQ<br>
+* DataBase: Mysql MongoDB<br>
+* Log: log4j<br>
+* Test: Junit4<br>
+* refactoring code<br>
+* design pattern<br>
+* algorithm: DP, DFS, BFS<br>
+* data struct: list, tree, sort, search<br>
 
