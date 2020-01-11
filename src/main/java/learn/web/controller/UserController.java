@@ -1,6 +1,8 @@
 package learn.web.controller;
 
 import learn.web.service.UserService;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +17,8 @@ import java.util.Map;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    Log log = LogFactory.getLog(UserController.class);
 
     @Resource(name = "userService")
     private UserService service;
@@ -35,6 +39,10 @@ public class UserController {
        // mav.addObject("a","nihao");
        // mav.setViewName("User");
         model.put("a","nihao");
+        if (true){
+            log.info("bugai");
+            log.error("chucuos");
+        }
         return "User";
     }
 }

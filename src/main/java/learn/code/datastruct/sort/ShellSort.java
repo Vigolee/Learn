@@ -37,9 +37,29 @@ public class ShellSort {
         }
     }
 
+    void test(int[] arr){
+        int increment = arr.length;
+        while (increment > 1){
+            increment = increment/ 3 +1; // 增量
+            for (int i = increment; i < arr.length; ++i){
+                int j = i - increment; // 有序数组下标
+                int key = arr[i]; // 待插入元素
+                while (j >=0){
+                    if(key < arr[j]){
+                        arr[j + increment] = arr[j];
+                        j -= increment;
+                    }else {
+                        break;
+                    }
+                    arr[j + increment] = key; // 插入
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        int[] nums = { 2, 7, 8, 3, 1, 6, 9, 0, 5, 4 };
-        new ShellSort().shellSort(nums);
+        int[] nums = { 2, 7, 8, 3, 1, 6, 9, 0, 5, 4 , -1};
+        new ShellSort().test(nums);
         for(int a : nums)
             System.out.println(a);
     }

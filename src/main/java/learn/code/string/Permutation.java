@@ -26,8 +26,12 @@ public class Permutation {
     }
 
     public static void main(String[] args) {
-        char[] buf = {'a', 'b','c'};
-        Permutation(buf, 0 , buf.length - 1);
+//        char[] buf = {'a', 'a'};
+//        Permutation(buf, 0 , buf.length - 1);
+//        String str;
+        char c= '2';
+        System.out.println(c);
+
     }
 
 }

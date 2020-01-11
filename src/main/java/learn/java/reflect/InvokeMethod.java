@@ -39,12 +39,12 @@ public class InvokeMethod {
             Method param_method = invokeMethodClass.getMethod("add"
                     ,new Class<?>[]{int.class
                     , int.class});//第一个参数是方法名，第二个参数是这个方法所需要的参数的Class对象的数组
-            Method no_param_method = invokeMethodClass.getMethod("print");
+            Method no_param_method = invokeMethodClass.getMethod("print",null);
             /** 第四步，调用目标方法 */
             Object result = param_method.invoke(obj, new Object[]{1, 2});// 带参数和返回值
             System.out.println("result is " + result);
 
-            no_param_method.invoke(obj);// 无返回值方法
+            no_param_method.invoke(obj,null);// 无返回值方法
 
         } catch (InstantiationException e) {
             e.printStackTrace();

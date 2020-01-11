@@ -30,6 +30,7 @@ public class ConnectZookeeper implements Watcher{
     public void process(WatchedEvent watchedEvent) {
         if (watchedEvent.getState() == Event.KeeperState.SyncConnected){
             connectedSignal.countDown();
+            System.out.println(zk.getSessionId());
         }
     }
 }

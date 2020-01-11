@@ -22,10 +22,14 @@ public class QucikSort {
         while (low < high){
             while (low < high && arr[high] >= key) // 注意：先高后低（原因：保证low最后指向一定小于key）
                 high--;
-            arr[low] = arr[high];
+            if(low < high){
+                arr[low] = arr[high];
+            }
             while (low < high && arr[low] <= key)
                 low++;
-            arr[high] = arr[low];
+            if (low < high){
+                arr[high] = arr[low];
+            }
         }
         arr[low] = key;
         return low;

@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
  * Created by Vigo on 16/7/22.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:conf/applicationContext.xml",
+@ContextConfiguration(locations = {"classpath:WEB-INF/applicationContext.xml",
         "classpath:conf/SpringMVC-servlet.xml"})
 public class UserControllerTest {
 

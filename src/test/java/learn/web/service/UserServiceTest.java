@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  * Created by Vigo on 16/7/22.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/conf/applicationContext.xml",
+@ContextConfiguration(locations = {"classpath:/WEB-INF/applicationContext.xml",
         "classpath:/conf/SpringMVC-servlet.xml"})
 public class UserServiceTest extends AbstractJUnit4SpringContextTests {
 

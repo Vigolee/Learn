@@ -43,6 +43,7 @@ public class Client {
                         Set<SelectionKey> keys = selector.selectedKeys();
                         Iterator<SelectionKey> iterator = keys.iterator();
                         SelectionKey key = null;
+
                         while (iterator.hasNext()){
                             key = iterator.next();
                             if (key.isConnectable()){
